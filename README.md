@@ -22,3 +22,12 @@ https://xd.adobe.com/view/e66639b4-d04e-43ca-868b-30ccef939812-b335/
 | 江葉　皓平     | 画像処理      |
 | 杉坂　侑哉     | 画像処理      |
 | 横山　結一     | 画像処理      |
+
+
+## 使用するモジュール
+
+下記の通りインストールしてください
+pip install pyocr
+brew install tesseract
+wget https://github.com/tesseract-ocr/tessdata/raw/4.00/jpn.traineddata
+mv jpn.traineddata /usr/local/Cellar/tesseract/4.1.3/share/tessdata/
