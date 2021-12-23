@@ -19,7 +19,6 @@ def character_search(name):
     str_count = len(str)
 
     for line_box in line_boxs:
-        # 件 名 : バブ リッ クコ メン ト へ の 意見 ((68, 182), (235, 191)
         tate = line_box.position[1][1] - line_box.position[0][1]
         yoko = (line_box.position[1][0] - line_box.position[0][0])/len(line_box.content)
         #print(tate)
@@ -33,6 +32,9 @@ def character_search(name):
         # 小の左肩の座標
         #print(line_box.content, line_box.position)
         if t.find(str) != -1:
+            # 空白がある場合の処理
+            if line_box.content.find(str) == -1:
+                str_count = len(str)*2-1
             for s in range(len(line_box.content)):
                 if line_box.content[s] == str[0]:
                     num_y = line_box.position[0][0]+s*int(yoko)
