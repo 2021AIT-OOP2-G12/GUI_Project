@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/nav.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/upload.css">
+  <title>アップロード</title>
 </head>
 <body>
   <nav class="nav">
@@ -14,6 +15,16 @@
       <li><a href="">アップロード</a></li>
       <li><a href="">検索結果</a></li>
     </ul>
-  </nav>  
+  </nav>
+  <main>
+    <form id="form" onsubmit="return false;">
+      <input id="keyword" type="text" placeholder="検索ワード">
+      <input id="file" type="file" accept=".png, .jpg, .jpeg">
+      <input id="file_name" type="text" placeholder="保存するファイル名">
+      <input id="btn" type="submit" value="作成">
+    </form>
+  </main>
+
+  <script src="../static/js/upload.js"></script>
 </body>
 </html>
