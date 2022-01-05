@@ -2,15 +2,23 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/nav.css">
         <title>検索結果</title>
     </head>
     <body>
         <nav class="nav">
             <ul>
               <li><a href="#">トップページ</a></li>
-              <li><a href="">アップロード</a></li>
-              <li><a href="">検索結果</a></li>
+              <li><a href="/upload">アップロード</a></li>
+              <li><a href="/search_result">検索結果</a></li>
             </ul>
-        </nav>  
+        </nav>
+        <main>
+            {% for n in data %}
+                <img src="{{ n }}" alt="{{ n|basename }}" key="">
+            {% endfor %}
+        </main>  
     </body>
 </html>
