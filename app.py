@@ -14,7 +14,7 @@ def allowed_file(filename):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("top.html")
 
 @app.route("/search_upload")
 def search_upload():
@@ -22,7 +22,7 @@ def search_upload():
 
 @app.route("/search_result")
 def search_result():
-    return()
+    return render_template('search_result.html')
 
 @app.route("/upload", methods=["POST"])
 def upload():
