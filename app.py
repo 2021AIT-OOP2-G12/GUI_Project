@@ -26,7 +26,7 @@ app.jinja_env.filters['basename'] = basename
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("top.html")
 
 @app.route("/search_upload")
 def search_upload():
