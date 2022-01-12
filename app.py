@@ -34,7 +34,7 @@ def search_upload():
 
 @app.route("/search_result")
 def search_result():
-    data = glob.glob('images/results/*.jpg')
+    data = glob.glob('images/results/*.'+ALLOWED_EXTENSIONS)
     return render_template("search_result.html", data=data)
 
 @app.route("/upload", methods=["POST"])
