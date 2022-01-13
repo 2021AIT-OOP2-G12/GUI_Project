@@ -4,19 +4,19 @@
     height: 226px;
     padding:10px;
     background-color:#fff;
-    border:1px solid #999;
+    border:1px solid rgb(113, 124, 218);
     margin: 0 auto;
     overflow: hidden;
     cursor: pointer;
   }
-  .img_wrap img{
-    width: 100%;
+.img_wrap img{
+    width: 300px;
     transition-duration: 0.5s;
-  }
-  .img_wrap:hover img{
+}
+.img_wrap:hover img{
     transform: scale(1.2);
     transition-duration: 0.5s;
-  }
-  .flex{
-      display: flex;
-  }
+}
+.flex{
+    display: flex;
+}
