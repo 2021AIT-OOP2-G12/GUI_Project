@@ -1,4 +1,87 @@
+body {
+  margin: 0;
+  width: 100vw;
+  padding-top: 80px;
+}
+
 form {
   width: 80%;
+  max-width: 500px;
   margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#keyword {
+  border: 1px solid #808080;
+  text-align: center;
+  height: 40px;
+  border-radius: 30px;
+  outline: none;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.file_input_container {
+  height: 300px;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 30px 10px 10px 10px;
+  position: relative;
+}
+
+.file_input_label {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #808080;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.choice_btn {
+  position: absolute;
+  top: 3px;
+  left: 13px;
+}
+
+.file_input_message {
+  opacity: 0.5;
+  /* display: none; */
+}
+
+#file {
+  display: none;
+}
+
+.file_input_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: none;
+}
+
+#file_name {
+  border: 1px solid #808080;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
+
+#btn {
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #808080;
+  border-radius: 40px;
+  cursor: pointer;
+}
+#btn:hover {
+  background-color: rgba(55, 53, 47, 0.05); 
 }
