@@ -5,20 +5,25 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/searchresult.css">
         <title>検索結果</title>
     </head>
     <body>
         <nav class="nav">
             <ul>
                 <li><a href="{{url_for('index')}}">トップページ</a></li>
-                <li><a disabled="disabled">アップロード</a></li>
+                <li><a href="{{url_for('search_upload')}}">アップロード</a></li>
                 <li><a href="{{url_for('search_result')}}">検索結果</a></li>
             </ul>
         </nav>
         <main>
-            {% for n in data %}
-                <img src="{{ n }}" alt="{{ n|basename }}" key="">
-            {% endfor %}
+            <div class="flex">
+                {% for n in data %}
+                    <div class="img_wrap">
+                        <img src="{{ n }}" alt="{{ n|basename }}">
+                    </div>
+                {% endfor %}
+            </div>
         </main>  
     </body>
 </html>
