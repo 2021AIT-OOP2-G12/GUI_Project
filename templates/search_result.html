@@ -10,9 +10,9 @@
     <body>
         <nav class="nav">
             <ul>
-              <li><a href="#">トップページ</a></li>
-              <li><a href="/search_upload">アップロード</a></li>
-              <li><a href="/search_result">検索結果</a></li>
+                <li><a href="{{url_for('index')}}">トップページ</a></li>
+                <li><a disabled="disabled">アップロード</a></li>
+                <li><a href="{{url_for('search_result')}}">検索結果</a></li>
             </ul>
         </nav>
         <main>
