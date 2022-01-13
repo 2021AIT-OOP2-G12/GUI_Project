@@ -1,8 +1,14 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, Blueprint
 import numpy as np
 import cv2
+import os
+import glob
+
+#結果画像表示定義
+add_static = Blueprint('images', __name__, static_url_path='/images/results', static_folder='./images/results')
 
 app = Flask(__name__)
+app.register_blueprint(add_static)
 
 # 指定拡張子
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -11,6 +17,12 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# pathの作成
+def basename(path):
+    return os.path.basename(path)
+
+
+app.jinja_env.filters['basename'] = basename
 
 @app.route("/")
 def index():
@@ -22,7 +34,8 @@ def search_upload():
 
 @app.route("/search_result")
 def search_result():
-    return render_template('search_result.html')
+    data = glob.glob('images/results/*')
+    return render_template("search_result.html", data=data)
 
 @app.route("/upload", methods=["POST"])
 def upload():
