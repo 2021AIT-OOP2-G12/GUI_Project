@@ -33,6 +33,7 @@ def character_search(name,str):
     
     #現在の文字数のインデックス
     j=0
+    i=0
     #　指定された文字の検索、ハイライト処理 
     # とりあえず”小路”で実行する
     print(len(text))
@@ -43,48 +44,54 @@ def character_search(name,str):
         t = line_box.content
         u = text[j+1].content
         print(f"{t}&{u}")
-        '''print(f"{i}:{line_box}")
+        print(f"{i}:{line_box}")
+        #print(line_box.position[0][0])
         i=i+1
-        '''
-
+        num_y = line_box.position[0][1]
+        num_x = line_box.position[0][0]
+        
         #print(line_box.content, line_box.position)
         if t.find(serch[0]) != -1:
             if u.find(serch[1]) != -1:
-                print("検知")
+                print("-------------検知-----------")
+                #tate=文字の縦の長さ　tate_amp=文字の縦方向塗り潰しの増幅度
                 tate = line_box.position[1][1] - line_box.position[0][1]
-                tate1 = tate/2
+                tate_amp = tate/2
+                print(tate)
+                #yoko=文字の横の長さ　yoko_amp=文字の横方向塗り潰しの増幅度
                 yoko = (line_box.position[1][0] - line_box.position[0][0])
-                yoko1 = yoko/2
+                yoko_amp = yoko/2
                 #print(tate)
                 #print(yoko)
                 #print('-----------------!')
                 #print(len(line_box.content))
                 
-                num_y = line_box.position[0][0]
-                num_x = line_box.position[0][1]
+                #塗り潰し文字の左したの画素
+                num_y = line_box.position[0][1]
 
+                #塗り潰し文字の左うえの画素
+                num_x = line_box.position[0][0]
+            
                 #2値化画像をtmpに代入
                 tmp = bin_img.bin(sorce_img)
                 #2値化画像が黒い座標の色を変える
-                for y in range(num_y-int(yoko1),num_y+int(yoko)+int(yoko1)):
-                    for x in range(num_x-int(tate1),num_x+int(tate)+int(tate1)):
-                        s = tmp[x, y]
-                        b, g, r = sorce_img[x, y]
+                for y in range(num_y-int(yoko_amp),num_y+int(yoko)+int(yoko_amp)):
+                    for x in range(num_x-int(tate_amp),num_x+int(tate)+int(tate_amp)):
+                        s = tmp[y, x]
+                        b, g, r = sorce_img[y, x]
                         if s == 255:
                             continue
-                        sorce_img[x, y] = 0, g, r #元の画像がb=0だと変わらない
-
+                        sorce_img[y, x] = 0, g, r #元の画像がb=0だと変わらない
                 #for word_box in line_box.word_boxes:
                     #print('  ', word_box.content, word_box.position)
                     #cv2.rectangle(sorce_img, word_box.position[0][:], word_box.position[1][:], (255, 0, 0), thickness=1, lineType=cv2.LINE_8, shift=0)
         if text[j+1]!=None:
             j+=1
         if len(text)==j+1:break
-        print(len(text))
-        print(j)
+        print(f"番目：{j}")
     cv2.imwrite('sample.png',sorce_img)
     print("終了")
 
 
 if __name__ == "__main__":
-    character_search('test.png','小路')
+    character_search('sample1.png','個人')
