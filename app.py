@@ -34,9 +34,9 @@ def search_upload():
 
 @app.route("/search_result")
 def search_result():
-    data = glob.glob('images/results/*.'+ALLOWED_EXTENSIONS)
+    data = glob.glob('images/results/*')
     return render_template("search_result.html", data=data)
-    
+
 @app.route("/upload", methods=["POST"])
 def upload():
     if 'file' not in request.files:
