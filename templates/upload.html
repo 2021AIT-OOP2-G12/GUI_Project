@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/css/nav.css">
   <link rel="stylesheet" href="../static/css/upload.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <title>アップロード</title>
 </head>
 <body>
   <nav class="nav">
     <ul>
-      <li><a href="{{url_for('index')}}">トップページ</a></li>
+      <li class="home">
+        <a href="{{url_for('index')}}">
+          <i class="fas fa-home"></i>
+        </a>
+      </li>
       <li><a disabled="disabled">アップロード</a></li>
       <li><a href="{{url_for('search_result')}}">検索結果</a></li>
     </ul>
@@ -19,7 +24,14 @@
   <main>
     <form id="form" onsubmit="return false;">
       <input id="keyword" type="text" placeholder="検索ワード">
-      <input id="file" type="file" accept=".png, .jpg, .jpeg">
+      <div class="file_input_container">
+        <label class="file_input_label">
+          <div class="choice_btn">ファイルを選択</div>
+          <div class="file_input_message">ファイルが選択されていません</div>
+          <input id="file" type="file" accept=".png, .jpg, .jpeg">
+          <img class="file_input_img" src="../images/results/pexels-snapwire-227675.jpg" alt="">
+        </label>
+      </div>
       <input id="file_name" type="text" placeholder="保存するファイル名">
       <input id="btn" type="submit" value="作成">
     </form>
