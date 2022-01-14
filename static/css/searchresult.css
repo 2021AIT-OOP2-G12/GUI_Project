@@ -1,16 +1,34 @@
+:root {
+    font-family: 'TsukuARdGothic-Regular',sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background: -moz-linear-gradient(65deg, #F13F79, #FFC778); 
+    background: -webkit-linear-gradient(65deg, #F13F79, #FFC778); 
+    background: linear-gradient(25deg, #F13F79, #FFC778); 
+}
+main{
+    float: left;
+}
 .img_wrap{
-    border: 1px solid #ddd;
-    width: 300px;
-    height: 226px;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 150px;
+    height: 113px;
     padding:10px;
-    background-color:#fff;
-    border:1px solid rgb(113, 124, 218);
-    margin: 0 auto;
+    background-color:rgb(255, 255, 255);
+    margin-left: 30px;
+    margin-top: 30px;
     overflow: hidden;
     cursor: pointer;
-  }
+    box-shadow:0px 5px 8px 0px #BBBBBB ;
+}
 .img_wrap img{
-    width: 300px;
+    width: 150px;
     transition-duration: 0.5s;
 }
 .img_wrap:hover img{

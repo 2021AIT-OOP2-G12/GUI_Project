@@ -20,13 +20,13 @@
             </ul>
         </nav>
         <main>
-                <div class="flex">
-                    {%- for n in range(data|length) %}
-                        <div class="img_wrap">
-                            <a href="{{ data[n] }}" data-lightbox="group"><img src="{{ data[n] }}"></a>
-                        </div>
-                    {%- endfor %}
-                </div>
+            <div class="flex">
+                {%- for n in range(data|length) %}
+                    <div class="img_wrap">
+                        <a href="{{ data[n] }}" data-lightbox="group"><img src="{{ data[n] }}"></a>
+                    </div>
+                {%- endfor %}
+            </div>
         </main>  
     </body>
 </html>
