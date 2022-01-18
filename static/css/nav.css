@@ -3,9 +3,10 @@
   top: 0;
   width: 100vw;
   height: 80px;
-  /* border-bottom: 1px solid rgba(0,0,0,0.1); */
-  box-shadow: rgb(0 0 0 / 10%) 0px 6px 20px !important;
+  box-shadow: rgb(0 0 0 / 10%) 0px 6px 20px;
   padding-left: 40px;
+  background-color: #fff;
+  z-index: 20;
 }
 
 .nav ul {
@@ -21,10 +22,11 @@
   list-style: none;
   margin-right: 30px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .home {
-  font-size: 30px;
+  font-size: 30px !important;
   margin-right: 40px !important;
 }
 
@@ -37,4 +39,16 @@
 
 .nav ul li a:hover {
   opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .nav ul li {
+    font-size: 15px;
+    margin-right: 20px;
+  }
+
+  .home {
+    font-size: 25px !important;
+    margin-right: 25px !important;
+  }
 }
