@@ -5,6 +5,8 @@
   height: 80px;
   box-shadow: rgb(0 0 0 / 10%) 0px 6px 20px;
   padding-left: 40px;
+  background-color: #fff;
+  z-index: 20;
 }
 
 .nav ul {
