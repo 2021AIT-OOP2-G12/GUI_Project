@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/top.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>top</title>
 </head>
 <body>
+    <nav class="nav">
+        <ul>
+          <li class="home">
+            <a href="{{url_for('index')}}">
+              <i class="fas fa-home"></i>
+            </a>
+          </li>
+          <li><a href="{{url_for('search_upload')}}">アップロード</a></li>
+          <li><a href="{{url_for('search_result')}}">検索結果</a></li>
+        </ul>
+      </nav>
     <main>
         <div class="title">
-            <h1>画像の文字検出アプリ</h1>
+            <h1>画像の<span class="str">文字検出</span>アプリ</h1>
+            <img src="../static/web_images/marker.jpg" alt="marker">
         </div>
-        <div class="menu">
-            <ul class="link">
-                <div class="btn"><li><a href="{{url_for('search_upload')}}">アップロード</a></li></div>
-                <div class="btn"><li><a href="{{url_for('search_result')}}">検索結果</a></li></div>
-            </ul>
+        <div class="contents">
+            <div class="ex">
+                <h1>画像から探したい文字列をハイライトします。</h1>
+                <img src="" alt="画像コンテナ">
+                <section class="detail">
+                    講義の資料，会議の資料などの画像から，特定の単語をハイライトすることができます。<br>
+                    「あの内容どこに書いてあったっけ？」や，「この単語は大事だから目立つようにしよう」といった時に利用してください。
+                </section>
+            </div>
+            <div class="ex">
+                <h1>使い方は簡単。</h1>
+                <img src="" alt="画像コンテナ">
+                <section class="detail">
+                    画像，ハイライトしたいキーワード，保存するファイル名を入力して，「作成」ボタンを押すだけです。
+                </section>
+            </div>
+        </div>
+        <div class="to_upload_button">
+            <a href="{{url_for('search_upload')}}">アップロード</a></li>
         </div>
     </main>
+    <footer>@OOP2_Group12_GUI_Project</footer>
 </body>
 </html>
