@@ -1,15 +1,27 @@
 {
 
 
+  const file = document.getElementById('file');
+  const fileInputImg = document.querySelector('.file_input_img');
+  const fileInputMessage = document.querySelector('.file_input_message');
+  file.addEventListener('change', (e) => {
+    if (!e.target.files[0]) {
+      fileInputImg.style.display = 'none';
+      fileInputMessage.style.display = 'block';
+    } else {
+      fileInputImg.style.display = 'block';
+      fileInputImg.src = window.URL.createObjectURL(e.target.files[0]);
+      fileInputMessage.style.display = 'none';
+    }
+  });
 
   const btn = document.getElementById('btn');
   const uploading = () => {
-    btn.disabled = true;
     btn.textContent = '作成中...';
+    btn.disabled = true;
   }
 
   const keyword = document.getElementById('keyword');
-  const file = document.getElementById('file');
   const fileName = document.getElementById('file_name');
   const uploaded = () => {
     btn.disabled = false;
@@ -17,6 +29,8 @@
     keyword.value = '';
     file.value = '';
     fileName.value = '';
+    fileInputImg.style.display = 'none';
+    fileInputMessage.style.display = 'block';
     alert('作成が完了しました。');
   }
 
