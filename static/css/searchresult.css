@@ -7,7 +7,7 @@ body {
     height: 100vh;
 }
 main{
-    float: left;
+    float: center;
 }
 .img_wrap{
     border-radius: 10px;
@@ -31,6 +31,7 @@ main{
     transition-duration: 0.5s;
 }
 .flex{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
 }
 
