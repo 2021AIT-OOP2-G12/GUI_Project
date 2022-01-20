@@ -8,21 +8,13 @@
     box-sizing: inherit;
 }
 :root {
-<<<<<<< HEAD
-    font-size: 20pt;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-family: 'TsukuARdGothic-Regular',sans-serif;
-=======
     font-size: 16px;
     font-family: "Montserrat", "Helvetica Neue", "Helvetica", "Arial", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo UI", "Meiryo", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
->>>>>>> main
     font-feature-settings: "palt";
 }
-
 html {
     min-height: 100%;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -31,14 +23,7 @@ body {
     width: 100%;
     height: 100vh;
     display: grid;
-<<<<<<< HEAD
-    place-items: center;
-    background: -moz-linear-gradient(65deg, #F13F79, #FFC778); 
-    background: -webkit-linear-gradient(65deg, #F13F79, #FFC778); 
-    background: linear-gradient(25deg, #F13F79, #FFC778); 
-=======
     color: #2e2e2e;
->>>>>>> main
 }
 .title{
     font-size: inherit;
@@ -64,10 +49,6 @@ body {
 .contents{
     margin-left: 7.5%;
     margin-bottom: 100px;
-<<<<<<< HEAD
-    margin-top: 0;
-    color: white;
-=======
 }
 .contents img{
     margin: 20px;
@@ -78,7 +59,6 @@ body {
     color: rgba(0, 0, 0, 0.54);
     font-size: 0.875rem;
     letter-spacing: 0.01071em;
->>>>>>> main
 }
 
 /*ボタンCSS*/
