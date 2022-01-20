@@ -12,11 +12,9 @@
     font-family: "Montserrat", "Helvetica Neue", "Helvetica", "Arial", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo UI", "Meiryo", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
     font-feature-settings: "palt";
 }
-
 html {
     min-height: 100%;
 }
-
 body {
     margin: 0;
     padding: 0;

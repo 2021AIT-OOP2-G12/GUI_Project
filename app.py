@@ -21,7 +21,6 @@ def allowed_file(filename):
 def basename(path):
     return os.path.basename(path)
 
-
 app.jinja_env.filters['basename'] = basename
 
 @app.route("/")
