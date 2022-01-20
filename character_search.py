@@ -3,16 +3,15 @@ import pyocr.builders
 from PIL import Image
 import cv2
 import bin_img
-import os
 
 
-def character_search(name,str):
+def character_search(str,src_mane,result_name):
     # tesseractをインストールしたフォルダにパスが通っていること
     tools = pyocr.get_available_tools()
     tool = tools[0]
     #画像読み込み
-    sorce_img = cv2.imread(name)
-    img = Image.open(name)
+    sorce_img = cv2.imread(src_mane)
+    img = Image.open(src_mane)
  
     #画像から文字を読み込む
     builder = pyocr.builders.WordBoxBuilder(tesseract_layout=6)
@@ -29,6 +28,9 @@ def character_search(name,str):
     #　指定された文字の検索、ハイライト処理 
     # 検索する文字を一文字ずつに分ける
     serch = list(str)
+    length = len(serch) #length = 検索する文字の文字数
+     #検索する文字が無いとき
+    if length == 0: return
     
     #現在の文字数のインデックス
     j=0
@@ -44,17 +46,11 @@ def character_search(name,str):
         num_x = line_box.position[0][0]
         
         #print(line_box.content, line_box.position)
-
-        #length = 検索する　文字の文字数
-        length = len(serch)
-        #検索する文字が無いとき
-        if length == 0:
-            break
         
         #t=検知した文字を探したい文字の文字数分、一文字ずつ持つリスト
         t = []
         for l in range(length):
-            try:
+            try: 
                 t += text[j+l].content
                 print(f"{text[j+l].content} & ",end='')
             except IndexError:
@@ -65,8 +61,7 @@ def character_search(name,str):
 
         #print(t)
 
-        if len(t) < len(serch):
-            break
+        if len(t) < len(serch):break
         #一文字目か二文字目が検索する文字の一文字目と一致したとき(length=1のときはt[1]がないので無条件で通すようにしている)
         elif t[0] == serch[0] or length == 1 or t[1] == serch[0]:
             #print(t)
@@ -107,7 +102,7 @@ def character_search(name,str):
                         tmp = bin_img.bin(sorce_img)
                         #2値化画像が黒い座標の色を変える
                         for y in range(num_y-int(tate_amp),num_y+int(tate)+int(tate_amp)):
-                            for x in range(num_x-int(yoko_amp),num_x+(int(yoko)*scope)):#文字数分範囲を増やしている
+                            for x in range(num_x-int(yoko_amp),num_x+(int(yoko)*scope)+int(yoko_amp)):#文字数分範囲を増やしている
                                 try:
                                     s = tmp[y, x]
                                     b, g, r = sorce_img[y, x]
@@ -119,26 +114,19 @@ def character_search(name,str):
                 #for word_box in line_box.word_boxes:
                     #print('  ', word_box.content, word_box.position)
                     #cv2.rectangle(sorce_img, word_box.position[0][:], word_box.position[1][:], (255, 0, 0), thickness=1, lineType=cv2.LINE_8, shift=0)
-        '''
-        if text[j+length-1]!=None:
+        
+        if text[j+1]!=None:
             j+=1
-        if len(text)-length-1==j+1:break
+        else:break
         #print(f"番目：{j}")
-        '''
-        try:
-            text[j+1]
-            j+=1
-            #print(f"番目：{j}")
-        except IndexError:
-            break
 
-    cv2.imwrite('sample.png',sorce_img)
+    cv2.imwrite("images/results/"+result_name,sorce_img)
     print("終了")
 
 
 
 if __name__ == "__main__":
-    character_search('sample1.png','課題')
+    character_search('課題','sample1.png','sample.png')
 
     #デバック用文字列
     '''
