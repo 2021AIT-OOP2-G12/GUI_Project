@@ -3,12 +3,18 @@ import numpy as np
 import cv2
 import os
 import glob
+import character_search
+from werkzeug.utils import secure_filename
 
 #結果画像表示定義
 add_static = Blueprint('images', __name__, static_url_path='/images/results', static_folder='./images/results')
 
 app = Flask(__name__)
 app.register_blueprint(add_static)
+
+# アップロードした画像ファイルの保存先を指定
+UPLOAD_FOLDER = 'images/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # 指定拡張子
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -58,14 +64,14 @@ def upload():
             "result": False, "message": "このファイル形式で保存することはできません。"
         })
 
-    img_array = np.asarray(bytearray(img_file.stream.read()), dtype=np.uint8)
-    img = cv2.imdecode(img_array, 1)
+    # img_array = np.asarray(bytearray(img_file.stream.read()), dtype=np.uint8)
+    # img = cv2.imdecode(img_array, 1)
 
-    data = {
-        "keyword": keyword,
-        "img": img,
-        "fileName": fileName
-    }
+    filename = secure_filename(img_file.filename)
+    img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    file_path = f'./images/uploads/{filename}'
+    character_search.character_search(keyword, file_path, fileName)
+    os.remove(f'./images/uploads/{filename}')
     
     return jsonify({ "result": True })
 
