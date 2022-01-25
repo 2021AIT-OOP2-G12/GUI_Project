@@ -63,6 +63,14 @@ main{
     letter-spacing: 0.01071em;
 }
 
+.ex{
+    margin-bottom: 50px;
+}
+
+.ex img{
+    border: 1px solid;
+}
+
 /*ボタンCSS*/
 .to_upload_button a {
     display: flex;
